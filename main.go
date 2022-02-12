@@ -10,12 +10,26 @@ func main() {
 	fmt.Printf("We have a total of %v tickets, and %v are still avalible\n", conferenceTickets, remainingTickets)
 	fmt.Println("Get your tickets here.")
 
-	var userName string
+	var firstName string
+	var lastName string
+	var email string
+	var tickets uint
+	var bookings  []string
 
+	
+	fmt.Print("Enter your first name: ")
+	fmt.Scan(&firstName)
+	fmt.Print("Enter your last name: ")
+	fmt.Scan(&lastName)
+	fmt.Print("Enter your email: ")
+	fmt.Scan(&email)
+	fmt.Print("Enter number of tickets: ")
+	fmt.Scan(&tickets)
+	
+	bookings = append(bookings,  firstName + " " + lastName) 
 
-	fmt.Print("Enter your name: ")
-	fmt.Scan(&userName)
-
-	fmt.Printf("Hello %v",userName)
-
+	remainingTickets = remainingTickets - tickets
+	fmt.Printf("Hello %v %v your email adress is %v. You have booked %v tickets\n",firstName, lastName, email, tickets)
+	fmt.Printf("%v tickets remaining\n", remainingTickets)
+	fmt.Println(bookings)
 }
