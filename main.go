@@ -8,7 +8,7 @@ import (
 func main() {
 	var conferenceName = "Go Conferecne"
 	const conferenceTickets = 50 
-	var remainingTickets uint = 50
+	var remainingTickets uint = 5
 	fmt.Printf("Hello, welcome to our %v booking aplication!\n", conferenceName)
 	fmt.Printf("We have a total of %v tickets, and %v are still avalible\n", conferenceTickets, remainingTickets)
 	fmt.Println("Get your tickets here.")
@@ -35,10 +35,14 @@ for{
 	
 	bookings = append(bookings,  firstName + " " + lastName) 
 	
+	if tickets > remainingTickets {
+		fmt.Printf("We only have %v tickets remaining, so you ca not book %v", remainingTickets, tickets)
+		continue
+	}
+
 	remainingTickets = remainingTickets - tickets
 	fmt.Printf("Hello %v %v your email adress is %v. You have booked %v tickets\n",firstName, lastName, email, tickets)
 	fmt.Printf("%v tickets remaining\n", remainingTickets)
-	fmt.Println(bookings)
 
 
 	for _,booking := range bookings {
@@ -46,6 +50,11 @@ for{
 		firstNames = append(firstNames, names[0])
 	} 
 		fmt.Println(firstNames)
+
+	if remainingTickets == 0 {
+		fmt.Println("No more tickets")
+		break
+	}
 }
 
 }
